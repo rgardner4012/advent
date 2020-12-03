@@ -1,10 +1,15 @@
 #!/usr/local/bin/python3.6
 
 with open('input.txt', 'r') as expenseReport:
-	for x in expenseReport.readlines():
-		print(x)
-		yang = 2020 - int(x)
-		print(yang)
-		if x == yang:
-			print('match!')
+	passed = set()
+	for line in expenseReport:
+		yin = int(line.strip())
+		yang = 2020 - yin
+		if yang in passed:
+			print('match!', yin, yang)
+		else:
+			passed.add(yin)
+
+print('solution=', yin * yang)
+
 
